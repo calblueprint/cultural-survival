@@ -11,7 +11,7 @@ const AudioScreen = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <Text>Audio Feed</Text>
+      <Text>AudioFIREBASE_ Feed</Text>
       <Button
         title="Back"
         style={styles.button}
