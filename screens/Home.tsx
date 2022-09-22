@@ -19,14 +19,14 @@ const HomeScreen = ({ navigation }: any) => {
         onPress={() => signOut(auth)}
       />
       <Button
-        title="Job Feed"
+        title="Audio"
         style={styles.button}
-        onPress={() => navigation.navigate("Feed")}
+        onPress={() => navigation.navigate("Audio")}
       />
       <Button
-        title="Job post drafting"
+        title="Grants"
         style={styles.button}
-        onPress={() => navigation.navigate("Draft")}
+        onPress={() => navigation.navigate("Grants")}
       />
       <Button
         title="Sign In"
