@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'react-native-elements';
-import './config/firebase';
+import './firebase/firebaseApp';
 import RootNavigation from './navigation';
 
 export default function App() {
