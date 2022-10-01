@@ -1,11 +1,11 @@
 # Cultural Survival
 
 ## Getting Started
-1. Clone the repo git clone [link]
+1. Clone the repo git clone
 2, Check your Node version with node -v (must be at least 12)
-3. Install expo globally, if not already npm install --global expo-cli
+3. Install expo globally, if not already yarn install --global expo-cli
 4. cd cultural-survival
-5. Install dependencies with npm install
+5. Install dependencies with yarn install
 6. Test the app by running expo start
 
 ## Adding Environment Variables
