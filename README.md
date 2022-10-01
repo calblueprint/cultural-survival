@@ -1,7 +1,7 @@
 # Cultural Survival
 
 ## Getting Started
-1. Clone the repo `git clone [Code -> HTTPS link]`
+1. Clone the repo `git clone https://github.com/calblueprint/cultural-survival.git`
 2. Check your Node version with node -v (must be at least 12)
 3. Install expo globally, if not already yarn install --global expo-cli
 4. cd cultural-survival
