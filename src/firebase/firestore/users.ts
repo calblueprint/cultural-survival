@@ -4,13 +4,13 @@ import { User } from "../../types/schema";
 
 const userCollection = collection(db, "users");
 
-const getUsers = async (id: string) => {
+export const getUser = async (id: string) => {
     const docRef = doc(db, 'users', id);
     const docSnap = await getDoc(docRef);
     return await parseUser(docSnap);
 }
 
-const getAllUsers = async () => {
+export const getAllUsers = async () => {
     const promises: Promise<User>[] = [];
     const docSnap = await getDocs(userCollection);
     docSnap.forEach((user) => {
@@ -20,12 +20,12 @@ const getAllUsers = async () => {
     return users;
 }
 
-const addUser = async (user: User) => {
+export const addUser = async (user: User) => {
     await addDoc(userCollection, user);
 }
 
 const parseUser = async (doc: any) => {
-    const user_id = doc.id.toString();
+    const user_id = doc.id.toString(); 
     const data = doc.data();
     const user = {
         user_id: user_id,
