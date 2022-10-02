@@ -1,5 +1,5 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDoc, doc, getDocs, DocumentReference, addDoc} from "firebase/firestore";
+import  { collection, getDoc, doc, getDocs, addDoc} from "firebase/firestore";
 import { User } from "../../types/schema";
 
 const userCollection = collection(db, "users");
@@ -11,9 +11,8 @@ const getUsers = async (id: string) => {
 }
 
 const getAllUsers = async () => {
-    const collectionRef = collection(db, 'users');
     const promises: Promise<User>[] = [];
-    const docSnap = await getDocs(collectionRef);
+    const docSnap = await getDocs(userCollection);
     docSnap.forEach((user) => {
         promises.push(parseUser(user))
     })
@@ -22,14 +21,14 @@ const getAllUsers = async () => {
 }
 
 const addUser = async (user: User) => {
-    const collectionRef = collection(db, 'users');
-    await addDoc(collectionRef, user);
+    await addDoc(userCollection, user);
 }
 
 const parseUser = async (doc: any) => {
     const user_id = doc.id.toString();
     const data = doc.data();
     const user = {
+        user_id: user_id,
         admin: data.admin,
         audio: data.audio,
         email: data.email,
