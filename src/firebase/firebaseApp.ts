@@ -25,7 +25,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-let analytics, db;
+let analytics:any, db:any;
 if (firebaseConfig?.projectId) {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
