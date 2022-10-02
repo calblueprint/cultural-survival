@@ -1,4 +1,3 @@
-import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useAuthentication } from "../utils/hooks/useAuthentication";
 import { Button } from "react-native-elements";
@@ -6,32 +5,16 @@ import { getAuth, signOut } from "firebase/auth";
 
 const auth = getAuth();
 
-const HomeScreen = ({ navigation }: any) => {
+const AudioScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
 
   return (
     <View style={styles.container}>
-      <Text>Welcome {user?.email}!</Text>
-
+      <Text>AudioFIREBASE_ Feed</Text>
       <Button
-        title="Sign Out"
+        title="Back"
         style={styles.button}
-        onPress={() => signOut(auth)}
-      />
-      <Button
-        title="Audio"
-        style={styles.button}
-        onPress={() => navigation.navigate("Audio")}
-      />
-      <Button
-        title="Grants"
-        style={styles.button}
-        onPress={() => navigation.navigate("Grants")}
-      />
-      <Button
-        title="Sign In"
-        style={styles.button}
-        onPress={() => navigation.navigate("Signin")}
+        onPress={() => navigation.navigate("Home")}
       />
     </View>
   );
@@ -49,4 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default AudioScreen;

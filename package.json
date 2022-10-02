@@ -19,8 +19,13 @@
     "react-native": "0.69.5",
     "react-native-dotenv": "^3.3.1",
     "react-native-elements": "^3.4.2",
+<<<<<<< HEAD
     "react-native-gesture-handler": "^2.6.2",
     "react-native-safe-area-context": "^4.4.1",
+=======
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "^3.17.0",
+>>>>>>> e4ba13f894441ff33ab083388e26faf32488b11e
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
