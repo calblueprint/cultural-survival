@@ -17,6 +17,7 @@ const HomeScreen = ({ navigation }: any) => {
         style={styles.button}
         onPress={() => signOut(auth)}
       />
+      
       <Button
         title="Audio"
         style={styles.button}
