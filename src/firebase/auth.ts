@@ -5,20 +5,23 @@ import { getAuth,
   signOut } from "firebase/auth";
 
 const auth = getAuth();
-export const createEmailPass = ( email: string, password: string ) => {
-  createUserWithEmailAndPassword(auth, email, password)
+export const createEmailPass = async ( email: string, password: string ): Promise<string> => {
+  let uid = "";
+  await createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      return user;
+      uid = user.uid;
+      return uid;
   })
   .catch((error) => {
     console.error(error);
     throw error;
   });
+  return "";
 }
 
-export const signInEmailPass = ( email: string, password: string ) => {
+export const signInEmailPass = async ( email: string, password: string ) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
@@ -44,10 +47,8 @@ export const useSignOut = () => {
 export const authObserver = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
+            // User is signed in
             const uid = user.uid;
-            // ...
         } else {
             // User is signed out
             console.log("No user signed in.");

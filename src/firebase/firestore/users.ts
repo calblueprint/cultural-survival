@@ -1,5 +1,5 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDoc, doc, getDocs, addDoc, deleteDoc } from "firebase/firestore";
+import  { collection, getDoc, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
 import { User } from "../../types/schema";
 
 const userCollection = collection(db, "users");
@@ -20,8 +20,14 @@ export const getAllUsers = async () => {
     return users;
 }
 
-export const addUser = async (user: User) => {
-    await addDoc(userCollection, user);
+export const addUser = async (userId: string, user: User) => {
+    const docRef = doc(db, 'users', userId)
+    await setDoc(docRef, user);
+}
+
+export const deleteUser = async (userID: string) => {
+    const docRef = doc(db, "users", userID);
+    await deleteDoc(docRef)
 }
 
 const parseUser = async (doc: any) => {
@@ -36,9 +42,4 @@ const parseUser = async (doc: any) => {
         language: data.language
     }
     return user as User;
-}
-
-export const deleteUser = async (userID: string) => {
-    const docRef = doc(db, "users", userID);
-    await deleteDoc(docRef)
 }
