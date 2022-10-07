@@ -1,5 +1,5 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDoc, doc, getDocs, addDoc} from "firebase/firestore";
+import  { collection, getDoc, doc, getDocs, addDoc, deleteDoc } from "firebase/firestore";
 import { User } from "../../types/schema";
 
 const userCollection = collection(db, "users");
@@ -36,4 +36,9 @@ const parseUser = async (doc: any) => {
         language: data.language
     }
     return user as User;
+}
+
+export const deleteUser = async (userID: string) => {
+    const docRef = doc(db, "users", userID);
+    await deleteDoc(docRef)
 }
