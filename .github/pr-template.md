@@ -10,7 +10,7 @@ _List all manual tests done/new unit tests you have implemented_
 
 ### Screenshots :calling:
 
-_Required for visual changes - please CC Esther (@/leexesther) below if adding screenshots!_
+_Required for visual changes - please CC Esther (leexesther) below if adding screenshots!_
 
 ## :seedling: Related PRs :seedling:
 
