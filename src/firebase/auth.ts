@@ -11,14 +11,17 @@ export const createEmailPass = async ( email: string, password: string ): Promis
   .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      console.log("from userCredential:", user.uid);
       uid = user.uid;
+      console.log("saved to variable:", uid);
       return uid;
   })
   .catch((error) => {
     console.error(error);
     throw error;
   });
-  return "";
+  console.log("at end:", uid);
+  return uid;
 }
 
 export const signInEmailPass = async ( email: string, password: string ) => {

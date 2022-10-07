@@ -31,7 +31,7 @@ const SigninScreen = ({ navigation }: any) => {
         style={styles.button}
         onPress={async () => {
           const uid = await createEmailPass(email, pass);
-          console.log(uid)
+          console.log("createEmail:", uid)
           const userToAdd = {
             user_id: uid,
             admin: false,
@@ -40,8 +40,8 @@ const SigninScreen = ({ navigation }: any) => {
             grants: [""],
             language: "english",
           } as User;
-          console.log(uid)
-          addUser(uid, userToAdd);
+          console.log("Before addUser", uid);
+          await addUser(uid, userToAdd);
         }}
       />
     </View>

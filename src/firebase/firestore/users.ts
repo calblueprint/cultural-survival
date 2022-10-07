@@ -1,5 +1,5 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDoc, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
+import  { collection, getDoc, doc, getDocs, setDoc, deleteDoc, addDoc } from "firebase/firestore";
 import { User } from "../../types/schema";
 
 const userCollection = collection(db, "users");
@@ -21,8 +21,15 @@ export const getAllUsers = async () => {
 }
 
 export const addUser = async (userId: string, user: User) => {
-    const docRef = doc(db, 'users', userId)
-    await setDoc(docRef, user);
+    console.log("Inside addUser: \n", userId);
+    const docRef = doc(db, 'users', userId);
+    await addDoc(userCollection, user).then(() => {
+        console.log("Document has been added successfully");
+    })
+    .catch(error => {
+        console.log(error);
+    })
+    console.log("got past \n")
 }
 
 export const deleteUser = async (userID: string) => {
