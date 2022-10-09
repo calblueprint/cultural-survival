@@ -21,15 +21,11 @@ export const getAllUsers = async () => {
 }
 
 export const addUser = async (userId: string, user: User) => {
-    console.log("Inside addUser: \n", userId);
     const docRef = doc(db, 'users', userId);
-    await addDoc(userCollection, user).then(() => {
-        console.log("Document has been added successfully");
-    })
+    await setDoc(docRef, user)
     .catch(error => {
-        console.log(error);
+        console.error(error);
     })
-    console.log("got past \n")
 }
 
 export const deleteUser = async (userID: string) => {

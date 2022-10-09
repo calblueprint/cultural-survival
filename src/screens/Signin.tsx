@@ -3,7 +3,7 @@ import { useAuthentication } from "../utils/hooks/useAuthentication";
 import { Button } from "react-native-elements";
 import React, { useState } from "react"
 import { createEmailPass } from "../firebase/auth";
-import { addUser } from "../firebase/firestore/users";
+import { addUser, getAllUsers } from "../firebase/firestore/users";
 import { User } from "../types/schema"
 
 const SigninScreen = ({ navigation }: any) => {
@@ -31,7 +31,6 @@ const SigninScreen = ({ navigation }: any) => {
         style={styles.button}
         onPress={async () => {
           const uid = await createEmailPass(email, pass);
-          console.log("createEmail:", uid)
           const userToAdd = {
             user_id: uid,
             admin: false,
@@ -40,7 +39,6 @@ const SigninScreen = ({ navigation }: any) => {
             grants: [""],
             language: "english",
           } as User;
-          console.log("Before addUser", uid);
           await addUser(uid, userToAdd);
         }}
       />

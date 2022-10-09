@@ -10,17 +10,14 @@ export const createEmailPass = async ( email: string, password: string ): Promis
   await createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
       // Signed in 
-      const user = userCredential.user;
-      console.log("from userCredential:", user.uid);
-      uid = user.uid;
-      console.log("saved to variable:", uid);
-      return uid;
+    const user = userCredential.user;
+    uid = user.uid;
+    return uid;
   })
   .catch((error) => {
     console.error(error);
     throw error;
   });
-  console.log("at end:", uid);
   return uid;
 }
 
