@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useAuthentication } from "../utils/hooks/useAuthentication";
+import { useAuthentication } from "../../utils/hooks/useAuthentication";
 import { Button } from "react-native-elements";
 import { getAuth, signOut } from "firebase/auth";
+import ViewContainer from "../../components/ViewContainer";
+import RectButton from "../../components/RectButton";
+import globalStyles from "../../globalStyles";
+import styles from "./styles";
 
 const auth = getAuth();
 
@@ -9,43 +13,35 @@ const HomeScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
 
   return (
-    <View style={styles.container}>
-      <Text>Welcome {user?.email}!</Text>
+    <ViewContainer>
+      <Text style={globalStyles.h2}>Welcome {user?.email}!</Text>
 
-      <Button
-        title="Sign Out"
-        style={styles.button}
+      <RectButton
+        text="Sign Out"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
         onPress={() => signOut(auth)}
       />
-      <Button
-        title="Audio"
-        style={styles.button}
+      <RectButton
+        text="Audio"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
         onPress={() => navigation.navigate("Audio")}
       />
-      <Button
-        title="Grants"
-        style={styles.button}
+      <RectButton
+        text="Grants"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
         onPress={() => navigation.navigate("Grants")}
       />
-      <Button
-        title="Sign In"
-        style={styles.button}
+      <RectButton
+        text="Sign In"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
         onPress={() => navigation.navigate("Signin")}
       />
-    </View>
+    </ViewContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    marginTop: 10,
-  },
-});
 
 export default HomeScreen;

@@ -2,36 +2,32 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
+import ViewContainer from "../../components/ViewContainer";
+import RectButton from "../../components/RectButton";
+import globalStyles from "../../globalStyles";
+import styles from "./styles";
 
 const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Welcome screen!</Text>
+    <ViewContainer>
+      <Text style={globalStyles.h2}>Welcome screen!</Text>
 
-      <View style={styles.buttons}>
-        <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
-        <Button title="Sign up" type="outline" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign Up')} />
-      </View>
-    </View>
+      <ViewContainer>
+        <RectButton
+          text="Sign in"
+          buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+          textStyle={{ color: "#FFF" }}
+          onPress={() => navigation.navigate("Sign In")}
+        />
+        <RectButton
+          text="Sign up"
+          buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+          textStyle={{ color: "#FFF" }}
+          onPress={() => navigation.navigate("Sign Up")}
+        />
+      </ViewContainer>
+    </ViewContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 20,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  buttons: {
-    flex: 1,
-  },
-
-  button: {
-    marginTop: 10
-  }
-});
 
 export default WelcomeScreen;
