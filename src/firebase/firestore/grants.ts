@@ -1,5 +1,5 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDocs , doc, getDoc, addDoc, deleteDoc} from "firebase/firestore";
+import  { collection, getDocs , doc, getDoc, addDoc, deleteDoc, updateDoc} from "firebase/firestore";
 import { Grant } from "../../types/schema";
 
 
@@ -65,6 +65,17 @@ export const deleteGrant = async (grantId: string): Promise<void> => {
     throw e;
   }
 };
+/**
+ * Updates the grant's title to be the new given title 
+ */
+export const updateGrantTitle = async (grantId: string, newTitle: string): Promise<void> => {
+  const docRef = doc(db, "grants", grantId);
+  // This data object changes the fields that are different from the entry in backend!
+  const data = {
+      title: newTitle
+  }
+  await updateDoc(docRef, data)
+}
 
 
 const parseGrant = async (doc : any) => {
