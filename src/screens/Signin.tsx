@@ -9,6 +9,7 @@ import { User } from "../types/schema"
 const SigninScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [users, setUsers] = useState("");
 
   return (
     <View style={styles.container}>
@@ -40,8 +41,22 @@ const SigninScreen = ({ navigation }: any) => {
             language: "english",
           } as User;
           await addUser(uid, userToAdd);
+          console.log("done!")
         }}
       />
+      <Button
+        title="Get Users"
+        style={styles.button}
+        onPress={async () => {
+          const usersFromDatabase = await getAllUsers();
+          let uids: string[] = []
+          usersFromDatabase.map((element) => {
+            uids.push(element.user_id);
+          })
+          setUsers(uids.toString())
+        }}>
+      </Button>
+      <Text>{users}</Text>
     </View>
   );
 };
