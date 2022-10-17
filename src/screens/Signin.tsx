@@ -11,6 +11,28 @@ const SigninScreen = ({ navigation }: any) => {
   const [pass, setPass] = useState("");
   const [users, setUsers] = useState("");
 
+  const handleSignup = async () => {
+    const uid = await createEmailPass(email, pass);
+    const userToAdd = {
+      user_id: uid,
+      admin: false,
+      audio: [""],
+      email: email,
+      grants: [""],
+      language: "english",
+    } as User;
+    await addUser(uid, userToAdd);
+  }
+
+  const handleGetUsers = async () => {
+    const usersFromDatabase = await getAllUsers();
+    let uids: string[] = []
+    usersFromDatabase.map((element) => {
+      uids.push(element.user_id);
+    })
+    setUsers(uids.toString())
+  }
+
   return (
     <View style={styles.container}>
       <Text>Sign in</Text>
@@ -30,32 +52,13 @@ const SigninScreen = ({ navigation }: any) => {
       <Button
         title="Sign Up"
         style={styles.button}
-        onPress={async () => {
-          const uid = await createEmailPass(email, pass);
-          const userToAdd = {
-            user_id: uid,
-            admin: false,
-            audio: [""],
-            email: email,
-            grants: [""],
-            language: "english",
-          } as User;
-          await addUser(uid, userToAdd);
-          console.log("done!")
-        }}
+        onPress={() => handleSignup()}
       />
       <Button
         title="Get Users"
         style={styles.button}
-        onPress={async () => {
-          const usersFromDatabase = await getAllUsers();
-          let uids: string[] = []
-          usersFromDatabase.map((element) => {
-            uids.push(element.user_id);
-          })
-          setUsers(uids.toString())
-        }}>
-      </Button>
+        onPress={() => handleGetUsers()}
+      />
       <Text>{users}</Text>
     </View>
   );
