@@ -29,10 +29,15 @@ const HomeScreen = ({ navigation }: any) => {
         onPress={() => navigation.navigate("Grants")}
       />
       <Button
-        title="Sign In"
+        title="Translation"
         style={styles.button}
-        onPress={() => navigation.navigate("Signin")}
+        onPress={() => navigation.navigate("Translation")}
       />
+            <Button
+              title="Sign In"
+              style={styles.button}
+              onPress={() => navigation.navigate("Signin")}
+            />
     </View>
   );
 };

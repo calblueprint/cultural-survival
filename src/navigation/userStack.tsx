@@ -6,6 +6,7 @@ import HomeScreen from "../screens/Home";
 import AudioScreen from "../screens/Audio";
 import SigninScreen from "../screens/Signin";
 import GrantsScreen from "../screens/Grants";
+import TranslationScreen from "../screens/Translation";
 import { RootStackParamList } from "../types/navigation";
 
 const UserStack = () => {
@@ -17,6 +18,7 @@ const UserStack = () => {
         <Stack.Screen name="Audio" component={AudioScreen} />
         <Stack.Screen name="Grants" component={GrantsScreen} />
         <Stack.Screen name="Signin" component={SigninScreen} />
+        <Stack.Screen name="Translation" component={TranslationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
