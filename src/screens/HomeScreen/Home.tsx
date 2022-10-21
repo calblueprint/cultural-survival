@@ -35,6 +35,12 @@ const HomeScreen = ({ navigation }: any) => {
         onPress={() => navigation.navigate("Grants")}
       />
       <RectButton
+        text="Translation"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
+        onPress={() => navigation.navigate("Translation")}
+      />
+      <RectButton
         text="Sign In"
         buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
         textStyle={{ color: "#FFF" }}

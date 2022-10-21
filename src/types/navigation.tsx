@@ -8,4 +8,5 @@
     Audio: undefined;
     Grants: undefined;
     Signin: undefined;
+    Translation: undefined;
   };
