@@ -2,11 +2,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "../screens/Home";
-import AudioScreen from "../screens/Audio";
-import SigninScreen from "../screens/Signin";
-import GrantsScreen from "../screens/Grants";
-import TranslationScreen from "../screens/Translation";
+
+import TranslationScreen from "../screens/TranslationScreen/Translation";
+import HomeScreen from "../screens/HomeScreen/Home";
+import AudioScreen from "../screens/AudioScreen/Audio";
+import SigninScreen from "../screens/SigninScreen/Signin";
+import GrantsScreen from "../screens/GrantsScreen/Grants";
 import { RootStackParamList } from "../types/navigation";
 
 const UserStack = () => {
