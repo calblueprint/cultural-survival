@@ -15,12 +15,12 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDB0ZyQaONWL5UMELG5mV2noeASRw2fClE",
-  authDomain: "cultural-survival-mobile.firebaseapp.com",
-  projectId: "cultural-survival-mobile",
-  storageBucket: "cultural-survival-mobile.appspot.com",
-  messagingSenderId: "478555958325",
-  appId: "1:478555958325:web:28ed21961a96ae1b89557c",
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
 };
 
 // Initialize Firebase
