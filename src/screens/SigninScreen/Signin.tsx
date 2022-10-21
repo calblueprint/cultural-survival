@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import { useAuthentication } from "../../utils/hooks/useAuthentication";
 import { Button } from "react-native-elements";
 import { getAuth, signOut } from "firebase/auth";
@@ -45,12 +45,27 @@ const SigninScreen = ({ navigation }: any) => {
   return (
     <ViewContainer>
       <Text style={globalStyles.h2}>Sign in</Text>
+      <TextInput 
+        placeholder="email"
+        onChangeText={(email) => setEmail(email)}
+      />
+      <TextInput
+        placeholder="password"
+        onChangeText={(pass) => setPass(pass)}
+      />
       <RectButton
-        text="Sign In"
+        text="Sign Up"
         buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
         textStyle={{ color: "#FFF" }}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => handleSignup}
       />
+      <RectButton
+        text="Get Users"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
+        onPress={() => handleGetUsers()}
+      />
+      <Text style={globalStyles.body1}>{users}</Text>
       <RectButton
         text="Back"
         buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
@@ -62,3 +77,33 @@ const SigninScreen = ({ navigation }: any) => {
 };
 
 export default SigninScreen;
+
+// return (
+//   <View style={styles.container}>
+//     <Text>Sign in</Text>
+//     <Button
+//       title="Back"
+//       style={styles.button}
+//       onPress={() => navigation.navigate("Home")}
+//     />
+//     <TextInput 
+//       placeholder="email"
+//       onChangeText={(email) => setEmail(email)}
+//     />
+//     <TextInput
+//       placeholder="password"
+//       onChangeText={(pass) => setPass(pass)}
+//     />
+//     <Button
+//       title="Sign Up"
+//       style={styles.button}
+//       onPress={() => handleSignup()}
+//     />
+//     <Button
+//       title="Get Users"
+//       style={styles.button}
+//       onPress={() => handleGetUsers()}
+//     />
+//     <Text>{users}</Text>
+//   </View>
+// );
