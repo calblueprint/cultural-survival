@@ -31,21 +31,21 @@ const SigninScreen = ({ navigation }: any) => {
       language: "english",
     } as User;
     await addUser(uid, userToAdd);
-  }
+  };
 
   const handleGetUsers = async () => {
     const usersFromDatabase = await getAllUsers();
-    let uids: string[] = []
+    let uids: string[] = [];
     usersFromDatabase.map((element) => {
       uids.push(element.user_id);
-    })
-    setUsers(uids.toString())
-  }
+    });
+    setUsers(uids.toString());
+  };
 
   return (
     <ViewContainer>
       <Text style={globalStyles.h2}>Sign in</Text>
-      <TextInput 
+      <TextInput
         placeholder="email"
         onChangeText={(email) => setEmail(email)}
       />
@@ -77,33 +77,3 @@ const SigninScreen = ({ navigation }: any) => {
 };
 
 export default SigninScreen;
-
-// return (
-//   <View style={styles.container}>
-//     <Text>Sign in</Text>
-//     <Button
-//       title="Back"
-//       style={styles.button}
-//       onPress={() => navigation.navigate("Home")}
-//     />
-//     <TextInput 
-//       placeholder="email"
-//       onChangeText={(email) => setEmail(email)}
-//     />
-//     <TextInput
-//       placeholder="password"
-//       onChangeText={(pass) => setPass(pass)}
-//     />
-//     <Button
-//       title="Sign Up"
-//       style={styles.button}
-//       onPress={() => handleSignup()}
-//     />
-//     <Button
-//       title="Get Users"
-//       style={styles.button}
-//       onPress={() => handleGetUsers()}
-//     />
-//     <Text>{users}</Text>
-//   </View>
-// );
