@@ -10,21 +10,9 @@ import { Grant } from "../types/schema";
 const auth = getAuth();
 const GrantsScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
-
+  const[grantCategory, setGrantCategory] = useState("");
   const[grants, setGrants] = useState([] as Grant[]);
   const[grant, setGrant] = useState(null);
-
-  const grantToAdd : any = { 
-    category: "data.category",
-    countries: ["Guatemala", "Bolivia"],
-    deadline: new Date(),
-    description: "data.description",
-    subject: "data.subject",
-    title: "data.title",
-  }
-
-
-
 
   useEffect(() => {
 
@@ -38,8 +26,6 @@ const GrantsScreen = ({ navigation }: any) => {
       console.log("Grant array: ");
       console.log(data)
       setGrants(data);
-   
-  
     };
 
     tesGrantQueries();
@@ -81,8 +67,6 @@ const GrantsScreen = ({ navigation }: any) => {
           </div>
           );
 
-
-
            })}
       </div>
 
@@ -97,7 +81,7 @@ const GrantsScreen = ({ navigation }: any) => {
       <Button
         title="Add Grant"
         style={styles.button}
-        onPress={() => addGrant(grantToAdd)}
+        //onPress={() => addGrant(grantToAdd)} no longer need this implement a button to add a Grant and input the fields 
       />
     </View>
   );

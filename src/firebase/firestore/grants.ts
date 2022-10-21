@@ -65,6 +65,7 @@ export const deleteGrant = async (grantId: string): Promise<void> => {
     throw e;
   }
 };
+
 /**
  * Updates the grant's title to be the new given title 
  */
