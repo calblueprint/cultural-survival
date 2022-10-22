@@ -6,6 +6,11 @@ import { useTranslation } from "react-i18next";
 import { namespaces } from "../../i18n/i18n.constants";
 import "../../i18n/i18n";
 
+import ViewContainer from "../../components/ViewContainer";
+import RectButton from "../../components/RectButton";
+import globalStyles from "../../globalStyles";
+
+
 
 const auth = getAuth();
 
@@ -35,31 +40,34 @@ const TranslationScreen = ({ navigation }: any) => {
 
 
   return (
-    <View style={styles.container}>
-      <text>{t("welcome")}</text>
-      <text>{t("radio")}</text>
-      <text>{t("grants")}</text>
-      <Button 
-      title="English"
+    <ViewContainer>
+      <Text style={globalStyles.h2}>{t("welcome")}</Text>
+      <Text style={globalStyles.h2}>{t("radio")}</Text>
+      <Text style={globalStyles.h2}>{t("grants")}</Text>
+      <RectButton 
+      text="English"
       {...t("buttons.ok", { ns: namespaces.common })}
       onPress={() => handleClick('en')}
       />
-      <Button 
-      title="Spanish"
+      <RectButton 
+      text="Spanish"
       {...t("buttons.ok", { ns: namespaces.common })}
       onPress={() => handleClick('es')}
       />
-      <Button 
-      title="toggle"
+      <RectButton 
+      text="toggle"
       {...t("buttons.ok", { ns: namespaces.common })}
       onPress={() => handleClick(toggle(lang))}
       />
-      <Button
-        title="Back"
-        style={styles.button}
+      <RectButton
+        text="Back"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
         onPress={() => navigation.navigate("Home")}
+        
       />
-    </View>
+    </ViewContainer>
+
   );
 };
 
