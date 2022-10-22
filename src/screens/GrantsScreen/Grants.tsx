@@ -19,46 +19,82 @@ const defaultGrant: Grant = {
 
 }
 
-const dummyGrant: any = {
-  category: "dummy-category",
-  countries: ["dummyCountry1", "dummyCountry2"],
-  deadline: new Date(),
-  description: "dummyDescription",
-  subject: "dummySubject",
-  title: "dummySubject",
-
-}
-
 
 const auth = getAuth();
 const GrantsScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
-  const[grant, setGrant] = useState(defaultGrant);
+  const[categoryField, setCategoryField] = useState("");
+  const[countriesField, setCountriesField] = useState([]);
+  const[deadlineField, setDeadlineField] = useState(new Date());
+  const[descriptionField, setDescriptionField] = useState("");
+  const[subjectField, setsubjectField] = useState("");
+  const[titleField, setTitleField] = useState("");
 
+
+  const[grant, setGrant] = useState(defaultGrant);
   const[grants, setGrants] = useState([] as Grant[]); // will probs be the most helpful for displaying updates!! after updating just run get allgrants and setgrants
 
 
   useEffect(() => {
 
-    const tesGrantQueries = async () => {
-      // getGrant test
-      const grant = await getGrant("M9ytyRWHtepT9DhzrmZI");
-      console.log("Dummy Grant:")
-      console.log(grant);
-      // getAllGrants test
+    const displayGrants = async () => {
+      //const grant = await getGrant("M9ytyRWHtepT9DhzrmZI");
       const data = await getAllGrants();
       setGrants(data);
     };
 
-    tesGrantQueries();
-  }, [])
+    displayGrants();
+  }, [grants])
 
-  const completeDelete = async (grantID : string) => {
+  const deleteGrantHelper = (grantID : string) => {
     const newGrants = grants;
+    grants.forEach((grant) => {
+      if (grant.grant_id != grantID) {
+        newGrants.push(grant)
+      }
+    })
+    setGrants(newGrants);
+  };
+
+  const updateGrantHelper = async (grantID : string) => {
+    const newGrants = grants;
+    newGrants.forEach((grant) => {
+      if (grant.grant_id == grantID) {
+
+      }
+      
+
+    })
 
     setGrants(newGrants);
 
+  };
+
+  const handleSubmit = () => {
+    if (true) { // fix this so it checks that the fields are not empty
+      const dummyGrant: any = {
+        category: "dummy-category",
+        countries: ["dummyCountry1", "dummyCountry2"],
+        deadline: new Date(),
+        description: "dummyDescription",
+        subject: "dummySubject",
+        title: "dummySubject",
+      
+      }
+      addGrant(dummyGrant);
+
+    }
   }
+
+  const addGrantHelper = async (grantID : string) => {
+    const newGrants = grants;
+    setGrant(await getGrant(grantID));
+    newGrants.push(grant);
+    setGrants(newGrants);
+
+  }
+
+
   
 
   return (
@@ -76,10 +112,10 @@ const GrantsScreen = ({ navigation }: any) => {
             <h6>Deadline: {grant.category}</h6>
 
             <button 
-              onClick={ () => {
+              onClick={() => {
                 if (grant.grant_id != "M9ytyRWHtepT9DhzrmZI") {
                   deleteGrant(grant.grant_id);
-                  completeDelete(grant.grant_id);
+                  deleteGrantHelper(grant.grant_id);
                 }
               }}>
                 Delete Grant
@@ -102,23 +138,21 @@ const GrantsScreen = ({ navigation }: any) => {
       </div>
 
       <Text>Grants Feed</Text>
+      <input placeholder="Title"/>
+      <input placeholder="Subject"/>
+      <input placeholder="Category"/>
+      <input placeholder="Description"/>
+      <input type="datetime-local"/>
+      <input placeholder="Countries"/>
+
+      <button onClick={handleSubmit}>Add Grant</button>
   
       <Button
         title="Back"
         style={styles.button}
         onPress={() => navigation.navigate("Home")}
       />
-
-      <Button
-        title="Add Grant"
-        style={styles.button}
-        onPress={async () => {
-          addGrant(dummyGrant);
-          const data = await getAllGrants();
-          setGrants(data);
-
-        }} //just for testing
-      />
+      
     </View>
   );
 };
