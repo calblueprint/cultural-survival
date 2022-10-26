@@ -1,6 +1,8 @@
 import  { db } from "../firebaseApp";
-import  { collection, getDocs , doc, getDoc, addDoc, deleteDoc, updateDoc} from "firebase/firestore";
+import  { collection, getDocs , doc, getDoc, addDoc, deleteDoc, updateDoc, Timestamp} from "firebase/firestore";
 import { Grant } from "../../types/schema";
+
+
 
 
 const grantsCollection = collection(db, "grants"); 
@@ -69,10 +71,28 @@ export const deleteGrant = async (grantId: string): Promise<void> => {
 /**
  * Updates the grant's title to be the new given title 
  */
-export const updateGrantTitle = async (grantId: string, newTitle: string): Promise<void> => {
+export const editGrant = async (
+  grantId: string, 
+  newAmount: number,
+  newCategory: string,
+  newCountries: string[],
+  newDeadline: Timestamp | Date,
+  newDescription: string,
+  newDuration: string,
+  newSubject: string,
+  newTitle: string
+
+  ): Promise<void> => {
   const docRef = doc(db, "grants", grantId);
   // This data object changes the fields that are different from the entry in backend!
   const data = {
+      amount: newAmount,
+      category: newCategory,
+      countries: newCountries,
+      deadline: newDeadline,
+      description: newDescription,
+      duration: newDuration, 
+      subject: newSubject,
       title: newTitle
   }
   await updateDoc(docRef, data)
@@ -85,10 +105,12 @@ const parseGrant = async (doc : any) => {
   
   const grant = {
     grant_id: grant_id, 
+    amount: data.amount,
     category: data.category,
     countries: data.countries,
     deadline: data.deadline,
     description: data.description,
+    duration: data.duration,
     subject: data.subject,
     title: data.title,
   }

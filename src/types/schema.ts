@@ -19,10 +19,12 @@ export type Audio = {
 
 export type Grant = {
     grant_id: string;
+    amount: number; //string for now, waiting on Jamie to determine type
     category: string;
     countries: string[];
     deadline: Timestamp | Date;
     description: string;
+    duration: string; //string for now, waiting on Jamie to determine type
     subject: string;
     title: string;
 }
