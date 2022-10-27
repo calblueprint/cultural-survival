@@ -1,5 +1,5 @@
-import  { db } from "../firebaseApp";
-import  { collection } from "firebase/firestore";
-import { Grant } from "../../types/schema";
+// import  { db } from "../firebaseApp";
+// import  { collection } from "firebase/firestore";
+// import { Grant } from "../../types/schema";
 
-const grantsCollection = collection(db, "grants");
+// const grantsCollection = collection(db, "grants");
