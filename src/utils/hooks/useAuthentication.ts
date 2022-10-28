@@ -1,27 +1,27 @@
-// import React from 'react';
-// import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import React from "react";
+//import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import Realm.Credentials from 'Realm'
 
-// const auth = getAuth();
+const auth = getAuth();
 
-// export function useAuthentication() {
-//   const [user, setUser] = React.useState<User>();
+export function useAuthentication() {
+  const [user, setUser] = React.useState<User>();
 
-//   React.useEffect(() => {
-//     const unsubscribeFromAuthStatuChanged = onAuthStateChanged(auth, (user) => {
-//       if (user) {
-//         // User is signed in, see docs for a list of available properties
-//         // https://firebase.google.com/docs/reference/js/firebase.User
-//         setUser(user);
-//       } else {
-//         // User is signed out
-//         setUser(undefined);
-//       }
-//     });
+  React.useEffect(() => {
+    // Create an anonymous credential
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      console.log("Successfully logged in!", user.id);
+      return user;
+    } catch (err) {
+      console.error("Failed to log in", err.message);
+    }
 
-//     return unsubscribeFromAuthStatuChanged;
-//   }, []);
+    return;
+  }, []);
 
-//   return {
-//     user
-//   };
-// }
+  return {
+    user,
+  };
+}
