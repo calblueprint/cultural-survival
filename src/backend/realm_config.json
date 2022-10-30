@@ -1,8 +1,0 @@
-{
-    "app_id": "cultural-survival-app-ugsqf",
-    "config_version": 20210101,
-    "name": "cultural-survival-app",
-    "location": "US-VA",
-    "provider_region": "aws-us-east-1",
-    "deployment_model": "GLOBAL"
-}

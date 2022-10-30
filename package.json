@@ -15,7 +15,6 @@
     "@realm/react": "^0.4.0",
     "expo": "~46.0.9",
     "expo-status-bar": "~1.4.0",
-    "firebase": "^9.6.11",
     "mongodb-realm-cli": "^2.6.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
