@@ -1,14 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useAuthentication } from "../../utils/hooks/useAuthentication";
 import ViewContainer from "../../components/ViewContainer";
 import RectButton from "../../components/RectButton";
 import globalStyles from "../../globalStyles";
 import styles from "./styles";
-import Icon from "../../../assets/icons";
-import { TextInput } from "react-native-gesture-handler";
 
 const Login1Screen = ({ navigation }: any) => {
-  const { user } = useAuthentication();
   const handleLogin = () => {
     navigation.navigate("Login2");
   };
