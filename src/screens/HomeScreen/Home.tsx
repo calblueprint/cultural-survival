@@ -46,6 +46,12 @@ const HomeScreen = ({ navigation }: any) => {
         textStyle={{ color: "#FFF" }}
         onPress={() => navigation.navigate("Splash")}
       />
+      <RectButton
+        text="Login"
+        buttonStyle={{ marginTop: "5%", backgroundColor: "#253C85" }}
+        textStyle={{ color: "#FFF" }}
+        onPress={() => navigation.navigate("Login1")}
+      />
     </ViewContainer>
   );
 };

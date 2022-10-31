@@ -9,4 +9,7 @@ export type RootStackParamList = {
   Grants: undefined;
   Signin: undefined;
   Splash: undefined;
+  Login1: undefined;
+  Login2: undefined;
+  Login3: undefined;
 };

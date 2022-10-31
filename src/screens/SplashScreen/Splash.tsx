@@ -8,7 +8,7 @@ import globalStyles from "../../globalStyles";
 import styles from "./styles";
 import Icon from "../../../assets/icons";
 
-const SigninScreen = ({ navigation }: any) => {
+const SplashScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
 
   return (
@@ -19,4 +19,4 @@ const SigninScreen = ({ navigation }: any) => {
   );
 };
 
-export default SigninScreen;
+export default SplashScreen;
