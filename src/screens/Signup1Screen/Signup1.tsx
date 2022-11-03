@@ -1,32 +1,33 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import ViewContainer from "../../components/ViewContainer";
 import RectButton from "../../components/RectButton";
 import globalStyles from "../../globalStyles";
 import styles from "./styles";
 
-const Login2Screen = ({ navigation }: any) => {
-  const handleLogin = () => {
-    navigation.navigate("Login3");
+const Signup1Screen = ({ navigation }: any) => {
+  const handleSignup = () => {
+    navigation.navigate("Signup2");
   };
   return (
     <ViewContainer>
-      <Text style={globalStyles.h2}>Welcome Back!</Text>
-      <Text style={globalStyles.h3}>Let's log in.</Text>
+      <Text style={globalStyles.h2}>Sign up here.</Text>
+      <Text style={globalStyles.h4}>Let's create an account.</Text>
+
       <Text style={globalStyles.body1}>EMAIL:</Text>
       <TextInput placeholder="email@example.com" />
+      <Text style={globalStyles.body1}>USERNAME:</Text>
+      <TextInput placeholder="username" />
       <Text style={globalStyles.body1}>PASSWORD:</Text>
       <TextInput placeholder="password" />
-      <Text style={globalStyles.body1}>Forgot password?</Text>
+      <Text style={globalStyles.body1}>Choose a strong password.</Text>
       <RectButton
-        text="Log in"
+        text="Sign Up"
         buttonStyle={{ marginTop: "5%", backgroundColor: "#A8A8A8" }}
         textStyle={{ color: "#FFF" }}
-        onPress={() => handleLogin()}
+        onPress={() => handleSignup()}
       />
-      <Text style={globalStyles.body1}>Haven't made your account yet?</Text>
-      <Text style={globalStyles.body1}>Sign up here.</Text>
     </ViewContainer>
   );
 };
 
-export default Login2Screen;
+export default Signup1Screen;

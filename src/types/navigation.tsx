@@ -12,4 +12,7 @@ export type RootStackParamList = {
   Login1: undefined;
   Login2: undefined;
   Login3: undefined;
+  Signup1: undefined;
+  Signup2: undefined;
+  Signup3: undefined;
 };
