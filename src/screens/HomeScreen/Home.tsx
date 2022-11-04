@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useAuthentication } from "../../utils/hooks/useAuthentication";
+// import { useAuthentication } from "../../utils/hooks/useAuthentication";
 import { Button } from "react-native-elements";
 import { getAuth, signOut } from "firebase/auth";
 import ViewContainer from "../../components/ViewContainer";
@@ -10,11 +10,11 @@ import styles from "./styles";
 const auth = getAuth();
 
 const HomeScreen = ({ navigation }: any) => {
-  const { user } = useAuthentication();
+  // const { user } = useAuthentication();
 
   return (
     <ViewContainer>
-      <Text style={globalStyles.h2}>Welcome {user?.email}!</Text>
+      <Text style={globalStyles.h2}>Welcome {/*user?.emaiL*/}!</Text>
 
       <RectButton
         text="Sign Out"

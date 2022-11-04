@@ -1,4 +1,4 @@
-import { Timestamp } from "firebase/firestore";
+// import { Timestamp } from "firebase/firestore";
 
 export type User = {
     user_id: string;
@@ -17,12 +17,12 @@ export type Audio = {
     title: string;
 }
 
-export type Grant = {
-    grant_id: string;
-    category: string;
-    countries: string[];
-    deadline: Timestamp;
-    description: string;
-    subject: string;
-    title: string;
-}
+// export type Grant = {
+//     grant_id: string;
+//     category: string;
+//     countries: string[];
+//     deadline: Timestamp;
+//     description: string;
+//     subject: string;
+//     title: string;
+// }
