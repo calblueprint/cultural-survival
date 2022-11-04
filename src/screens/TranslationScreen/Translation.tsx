@@ -85,6 +85,9 @@ const TranslationScreen = ({ navigation }: any) => {
   }
 
 
+
+
+
   return (
     <ViewContainer>
       <Text style={globalStyles.h2}>{t("welcome")}</Text>
