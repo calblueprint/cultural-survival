@@ -7,7 +7,7 @@ import Icon from "../../../assets/icons";
 
 const Signup3Screen = ({ navigation }: any) => {
   const handleSignup = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Login2");
   };
   const handleBack = () => {
     navigation.navigate("Signup2");

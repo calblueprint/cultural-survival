@@ -15,4 +15,5 @@ export type RootStackParamList = {
   Signup1: undefined;
   Signup2: undefined;
   Signup3: undefined;
+  Signup4: undefined;
 };
