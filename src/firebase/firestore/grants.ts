@@ -71,27 +71,17 @@ export const deleteGrant = async (grantId: string): Promise<void> => {
 /**
  * Updates the grant's title to be the new given title 
  */
-export const editGrant = async (
-  grantId: string, 
-  newAmount: number,
-  newCategory: string,
-  newCountries: string[],
-  newDeadline: Timestamp | Date,
-  newDescription: string,
-  newDuration: string,
-  newSubject: string,
-  newTitle: string
-
-  ): Promise<void> => {
+export const editGrant = async (grantId: string, newAmount: number, newCategory: string, newCountries: string[], newDescription: string, newDuration: string, newSubject: string, newTitle: string): Promise<void> => {
+  console.log("inQueryFunc1")
   const docRef = doc(db, "grants", grantId);
   // This data object changes the fields that are different from the entry in backend!
+  console.log("inQueryFunc")
   const data = {
       amount: newAmount,
       category: newCategory,
       countries: newCountries,
-      deadline: newDeadline,
       description: newDescription,
-      duration: newDuration, 
+      duration: newDuration,
       subject: newSubject,
       title: newTitle
   }

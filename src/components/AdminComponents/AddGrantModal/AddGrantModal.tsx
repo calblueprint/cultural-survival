@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import RectButton from "../RectButton";
-import { addGrant } from "../../firebase/firestore/grants";
-import styles from "./GrantModalStyles";
+import { Alert, Modal, StyleSheet, Text, Pressable, View , TextInput, SafeAreaView} from "react-native";
+import RectButton from "../../RectButton";
+import { addGrant } from "../../../firebase/firestore/grants";
+import styles from "./styles";
 
 
-const GrantModal = (properties : any) => {
+const AddGrantModal = (properties : any) => {
   const[modalVisible, setModalVisible] = useState(false);
   const[categoryField, setCategoryField] = useState("");
   const[countriesField, setCountriesField] = useState(""); // set as string temporarily 
@@ -55,7 +55,7 @@ const GrantModal = (properties : any) => {
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+        animationType="none"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -66,21 +66,56 @@ const GrantModal = (properties : any) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Upload a grant</Text>
-            
-            <input placeholder="Title" value={titleField} 
-              onChange={(event) => setTitleField(event.target.value)}/>
-            <input placeholder="Subject" value={subjectField} 
-              onChange={(event) => setSubjectField(event.target.value)}/>
-            <input placeholder="Category" value={categoryField} 
-              onChange={(event) => setCategoryField(event.target.value)}/>
-            <input placeholder="Description" value={descriptionField} 
-              onChange={(event) => setDescriptionField(event.target.value)}/>
-            <input placeholder="Amount" value={amountField} 
-              onChange={(event) => setAmountField(event.target.value)}/>
-            <input placeholder="Description" value={durationField} 
-              onChange={(event) => setDurationField(event.target.value)}/>
+            <SafeAreaView>
+              <TextInput
+                style={styles.input}
+                onChangeText={setAmountField}
+                value={amountField}
+                keyboardType="numeric"
+                placeholder="amount"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setCategoryField}
+                value={categoryField}
+                placeholder="category"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setCountriesField}
+                value={""}
+                placeholder="countries"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setDescriptionField}
+                value={descriptionField}
+                placeholder="description"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setDurationField}
+                value={durationField}
+                placeholder="duration"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setSubjectField}
+                value={subjectField}
+                placeholder="subject"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setTitleField}
+                value={titleField}
+                placeholder="title"
+              /> 
+
+            </SafeAreaView>
+
             <input type="datetime-local"/>
             <input placeholder="Countries"/>
+
     
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -108,4 +143,4 @@ const GrantModal = (properties : any) => {
   );
 };
 
-export default GrantModal;
+export default AddGrantModal;
