@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import ViewContainer from "../../components/ViewContainer";
 import RectButton from "../../components/RectButton";
 import globalStyles from "../../globalStyles";
@@ -24,7 +24,9 @@ const Login2Screen = ({ navigation }: any) => {
         onPress={() => handleLogin()}
       />
       <Text style={globalStyles.body1}>Haven't made your account yet?</Text>
-      <Text style={globalStyles.body1}>Sign up here.</Text>
+      <Pressable onPress={() => navigation.navigate("Signup1")}>
+        <Text style={globalStyles.body1}>Sign up here.</Text>
+      </Pressable>
     </ViewContainer>
   );
 };

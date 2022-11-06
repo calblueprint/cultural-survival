@@ -13,10 +13,12 @@ const Login1Screen = ({ navigation }: any) => {
   };
   return (
     <ViewContainer>
-      <Text style={globalStyles.h2}>Welcome to Cultural Survival.</Text>
-      <Text style={globalStyles.body1}>
-        Advancing Indigenous Peoples' Rights & Cultures Worldwide.
-      </Text>
+      <View style={styles.welcome}>
+        <Text style={globalStyles.h2}>Welcome to Cultural Survival.</Text>
+        <Text style={globalStyles.body1}>
+          Advancing Indigenous Peoples' Rights & Cultures Worldwide.
+        </Text>
+      </View>
       <RectButton
         text="Login"
         buttonStyle={{ marginTop: "5%", backgroundColor: "#A8A8A8" }}
