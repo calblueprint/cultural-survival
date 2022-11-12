@@ -1,0 +1,50 @@
+import { StyleSheet, Text, TouchableHighlightBase, View } from "react-native";
+import { useAuthentication } from "../../utils/hooks/useAuthentication";
+import { Button } from "react-native-elements";
+import { getAuth, signOut } from "firebase/auth";
+import { useTranslation } from "react-i18next";
+import { namespaces } from "../../i18n/i18n.constants";
+import "../../i18n/i18n";
+
+
+import ViewContainer from "../../components/ViewContainer";
+import RectButton from "../../components/RectButton";
+import globalStyles from "../../globalStyles";
+import React, { useState, useEffect } from "react";
+
+
+import {
+  CREDENTIALS
+} from "@env";
+
+
+
+
+const auth = getAuth();
+
+const {Translate} = require('@google-cloud/translate').v2;
+require('dotenv').config();
+
+// Your credentials
+//const CREDENTIALS = JSON.parse(TEST);
+//const CREDENTIALS = process.env.CREDENTIALS;
+const CRED = JSON.parse(CREDENTIALS);
+
+
+
+// Configuration for the client
+const translate = new Translate({
+  credentials: CRED,
+  projectId: CRED.project_id
+});
+
+{
+  "compilerOptions"; {
+    "allowJs"; true
+  }
+}
+var lang = 'es'
+//
+
+
+

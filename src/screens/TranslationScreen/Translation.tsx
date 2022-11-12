@@ -44,6 +44,7 @@ const translate = new Translate({
   }
 }
 var lang = 'es'
+//
 
 const TranslationScreen = ({ navigation }: any) => {
   const { user } = useAuthentication();
@@ -106,13 +107,6 @@ const TranslationScreen = ({ navigation }: any) => {
         }; */}
         </Text>
       
-      
-
-     
-     
-
-
-    
       <RectButton 
       text="English"
       {...t("buttons.ok", { ns: namespaces.common })}
@@ -123,6 +117,7 @@ const TranslationScreen = ({ navigation }: any) => {
       {...t("buttons.ok", { ns: namespaces.common })}
       onPress={() => handleClick('es')}
       />
+      
       <RectButton 
       text="toggle"
       {...t("buttons.ok", { ns: namespaces.common })}

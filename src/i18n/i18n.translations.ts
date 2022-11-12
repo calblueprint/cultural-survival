@@ -8,9 +8,14 @@ export const en = {
       },
     },
     [namespaces.pages.hello]: {
-      welcome: "Welcome",
+      welcome: "Welcome to Cultural Survival.",
+      categories: "Categories",
       radio: "Radio",
       grants: "Grants"
+    },
+    [namespaces.pages.grants]: {
+      grants_feed: "Grants Available",
+      welcome: "welcome in english"
     },
   };
 
@@ -22,9 +27,14 @@ export const es = {
     },
   },
   [namespaces.pages.hello]: {
-    welcome: "Bienvenido",
+    welcome: "Bienvenida a Cultural Survival.",
+    categories: "Categorías",
     radio: "Radio",
-    grants: "Subsidios"
+    grants: "Grants Feed"
+  },
+  [namespaces.pages.grants]: {
+    grants_feed: "Subvenciones Disponibles",
+    welcome: "welcome in spanish"
   },
 };
 
